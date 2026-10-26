@@ -1,0 +1,23 @@
+# Blueprint для Render: веб-сервис + бесплатная база PostgreSQL
+services:
+  - type: web
+    name: nova
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: nova-db
+          property: connectionString
+
+databases:
+  - name: nova-db
+    plan: free
+    databaseName: nova
+    user: nova
+    ipAllowList: []

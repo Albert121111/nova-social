@@ -1,0 +1,16 @@
+{
+  "name": "nova-social",
+  "version": "1.0.0",
+  "description": "Социальная сеть в стиле X на чистом Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}
